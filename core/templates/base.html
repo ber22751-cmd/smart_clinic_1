@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% block title %}Smart Clinic{% endblock %}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f5f5f5;
+        }
+        nav {
+            background-color: #007bff;
+            padding: 10px 20px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: bold;
+        }
+        nav .nav-links a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px #ccc;
+        }
+        button, input[type="submit"] {
+            background-color: #007bff;
+            border: none;
+            color: white;
+            padding: 10px 18px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover, input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="password"], textarea, select, input[type="date"], input[type="time"], input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        ul.appointments {
+            list-style: none;
+            padding: 0;
+        }
+        ul.appointments li {
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+        ul.appointments li:last-child {
+            border-bottom: none;
+        }
+        h2, h3 {
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+<nav>
+    <div class="logo">Smart Clinic</div>
+    <div class="nav-links">
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'login' %}">Login</a>
+        <a href="{% url 'patient_signup' %}">Patient Signup</a>
+    </div>
+</nav>
+
+<div class="container">
+    {% block content %}
+    {% endblock %}
+</div>
+
+</body>
+</html>

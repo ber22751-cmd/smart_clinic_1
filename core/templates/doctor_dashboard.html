@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}Doctor Dashboard{% endblock %}
+
+{% block content %}
+<h2>Doctor Dashboard</h2>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button type="submit">Update Profile</button>
+</form>
+
+<h3>Appointments</h3>
+{% if appointments %}
+    <ul>
+    {% for appointment in appointments %}
+        <li>
+            Patient: {{ appointment.patient.user.username }} - 
+            Date: {{ appointment.date }} - 
+            Time: {{ appointment.time }} - 
+            Reason: {{ appointment.reason }}
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No appointments yet.</p>
+{% endif %}
+
+{% if messages %}
+    <ul>
+        {% for message in messages %} 
+            <li style="color: green;">{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+{% endblock %}

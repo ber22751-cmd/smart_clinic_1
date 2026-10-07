@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}حجز موعد{% endblock %}
+
+{% block content %}
+<h2>حجز موعد جديد</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">احجز</button>
+</form>
+{% endblock %}
